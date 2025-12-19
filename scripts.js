@@ -64,7 +64,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Active menu item highlighting
-// Active menu item highlighting using Intersection Observer
+
 const observerOptionsHeader = {
     root: null,
     rootMargin: '-30% 0px -40% 0px', // Active when element triggers in the middle-upper band
@@ -708,4 +708,36 @@ function initContactCanvas() {
 }
 
 // Call the function
+
+
+// Skill Item Click Handler (Mobile/Touch)
+document.addEventListener('DOMContentLoaded', () => {
+    const skillItems = document.querySelectorAll('.skill-list-row');
+
+    skillItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            // Check if we are on a device where hover is the primary interaction (mouse)
+            // If so, we might want to respect hover, but your requirement implies click to toggle.
+            // A simple check is to see if window width is small, or just allow click globally.
+            // For mixed devices (touch + mouse), click toggle is safer.
+
+            // Toggle active class
+            const wasActive = this.classList.contains('active');
+
+            // Accordion behavior: Close all others
+            skillItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // If it wasn't active before, make it active now
+            if (!wasActive) {
+                this.classList.add('active');
+            }
+        });
+    });
+});
+
 window.addEventListener('load', initContactCanvas);
+
+
+
