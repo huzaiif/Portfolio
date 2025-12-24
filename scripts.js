@@ -186,49 +186,56 @@ const portfolioData = [
         title: 'Neural Network',
         description: 'Advanced AI system with deep learning capabilities for predictive analytics and pattern recognition.',
         image: 'images/neural-network.jpg',
-        tech: ['TensorFlow', 'Python', 'CUDA']
+        tech: ['TensorFlow', 'Python', 'CUDA'],
+        link: 'https://github.com/huzaiif'
     },
     {
         id: 2,
         title: 'Quantum Cloud',
         description: 'Next-generation cloud infrastructure leveraging quantum computing for unprecedented processing power.',
         image: 'images/quantum-cloud.jpg',
-        tech: ['AWS', 'Kubernetes', 'Docker']
+        tech: ['AWS', 'Kubernetes', 'Docker'],
+        link: 'https://github.com/huzaiif'
     },
     {
         id: 3,
         title: 'Blockchain Vault',
         description: 'Secure decentralized storage solution using advanced encryption and distributed ledger technology.',
         image: 'images/blockchain-vault.jpg',
-        tech: ['Ethereum', 'Solidity', 'Web3']
+        tech: ['Ethereum', 'Solidity', 'Web3'],
+        link: 'https://github.com/huzaiif'
     },
     {
         id: 4,
-        title: 'Cyber Defense',
-        description: 'Military-grade cybersecurity framework with real-time threat detection and automated response.',
-        image: 'images/cyber-defense.jpg',
-        tech: ['Zero Trust', 'AI Defense', 'Encryption']
+        title: 'HealthGPT',
+        description: 'Medical AI system with real-time threat detection and automated response.',
+        image: 'images/Healthgpt.png',
+        tech: ['Python', 'AI', 'Machine Learning'],
+        link: 'https://aihealthgpt.streamlit.app/'
     },
     {
         id: 5,
         title: 'Data Nexus',
         description: 'Big data processing platform capable of analyzing petabytes of information in real-time.',
         image: 'images/data-nexus.jpg',
-        tech: ['Apache Spark', 'Hadoop', 'Kafka']
+        tech: ['Apache Spark', 'Hadoop', 'Kafka'],
+        link: 'https://github.com/huzaiif'
     },
     {
         id: 6,
-        title: 'AR Interface',
-        description: 'Augmented reality system for immersive data visualization and interactive experiences.',
-        image: 'images/ar-interface.jpg',
-        tech: ['Unity', 'ARCore', 'Computer Vision']
+        title: 'LAYZBOOK',
+        description: 'A social netwrking platform for users to connect and share their experiences.',
+        image: 'images/layzbook.png',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        link: 'https://layzbook.netlify.app/'
     },
     {
         id: 7,
-        title: 'IoT Matrix',
-        description: 'Intelligent IoT ecosystem connecting millions of devices with edge computing capabilities.',
-        image: 'images/iot-matrix.jpg',
-        tech: ['MQTT', 'Edge AI', '5G']
+        title: 'PY Recommendation',
+        description: 'Intelligent movie recommendation system based on user preferences and behavior.',
+        image: 'images/movierec.png',
+        tech: ['Python', 'AI', 'Machine Learning'],
+        link: 'http://pymovierecommendationsystem.streamlit.app/'
     }
 ];
 
@@ -259,7 +266,7 @@ function createCarouselItem(data, index) {
             <h3 class="card-title">${data.title}</h3>
             <p class="card-description">${data.description}</p>
             <div class="card-tech">${techBadges}</div>
-            <button class="card-cta" onclick="window.location.href='#showcase'">Explore</button>
+            <button class="card-cta" onclick="window.open('${data.link}', '_blank')">Explore</button>
         </div>
     `;
 
