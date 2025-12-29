@@ -199,11 +199,11 @@ const portfolioData = [
     },
     {
         id: 3,
-        title: 'Blockchain Vault',
-        description: 'Secure decentralized storage solution using advanced encryption and distributed ledger technology.',
-        image: 'images/blockchain-vault.jpg',
-        tech: ['Ethereum', 'Solidity', 'Web3'],
-        link: 'https://github.com/huzaiif'
+        title: 'bloop',
+        description: 'A minimal gaming platform.',
+        image: 'images/bloop.png',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        link: 'https://github.com/huzaiif/bloop'
     },
     {
         id: 4,
@@ -231,7 +231,7 @@ const portfolioData = [
     },
     {
         id: 7,
-        title: 'PY Recommendation',
+        title: 'Cine AI',
         description: 'Intelligent movie recommendation system based on user preferences and behavior.',
         image: 'images/movierec.png',
         tech: ['Python', 'AI', 'Machine Learning'],
@@ -717,6 +717,7 @@ function initContactCanvas() {
 // Call the function
 
 
+
 // Skill Item Click Handler (Mobile/Touch)
 document.addEventListener('DOMContentLoaded', () => {
     const skillItems = document.querySelectorAll('.skill-list-row');
@@ -742,9 +743,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    initMobileSkillScroll();
 });
 
 window.addEventListener('load', initContactCanvas);
+
+// Mobile Skill Scroll Interaction
+let mobileSkillObserver;
+
+function initMobileSkillScroll() {
+    const skillItems = document.querySelectorAll('.skill-list-row');
+    const isMobile = window.innerWidth <= 768;
+
+    // Clean up existing observer if it exists
+    if (mobileSkillObserver) {
+        mobileSkillObserver.disconnect();
+        mobileSkillObserver = null;
+    }
+
+    // Only active on mobile
+    if (!isMobile) {
+        // Cleanup active states when switching to desktop
+        skillItems.forEach(item => item.classList.remove('active'));
+        return;
+    }
+
+    const observerOptions = {
+        root: null,
+        // Create a focus zone in the middle of the screen
+        // -30% from top and -30% from bottom means the middle 40% is the hot zone
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0
+    };
+
+    mobileSkillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Close others to keep focus clean (optional, but good for "auto open one")
+                skillItems.forEach(item => {
+                    if (item !== entry.target) {
+                        item.classList.remove('active');
+                    }
+                });
+                entry.target.classList.add('active');
+            } else {
+                // Auto close when leaving the zone
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    skillItems.forEach(item => {
+        mobileSkillObserver.observe(item);
+    });
+}
+
+// Re-init on resize to handle orientation changes or desktop window resizing
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initMobileSkillScroll, 200);
+});
+
 
 
 
