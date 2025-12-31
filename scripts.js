@@ -203,7 +203,7 @@ const portfolioData = [
         description: 'A minimal gaming platform.',
         image: 'images/bloop.png',
         tech: ['HTML', 'CSS', 'JavaScript'],
-        link: 'https://github.com/huzaiif/bloop'
+        link: 'https://blooop.netlify.app/'
     },
     {
         id: 4,
@@ -223,11 +223,11 @@ const portfolioData = [
     },
     {
         id: 6,
-        title: 'LAYZBOOK',
+        title: 'linkUp',
         description: 'A social netwrking platform for users to connect and share their experiences.',
         image: 'images/layzbook.png',
         tech: ['HTML', 'CSS', 'JavaScript'],
-        link: 'https://layzbook.netlify.app/'
+        link: 'https://linkup-k30f.onrender.com/'
     },
     {
         id: 7,
